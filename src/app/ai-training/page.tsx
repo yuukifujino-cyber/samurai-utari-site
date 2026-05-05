@@ -42,9 +42,9 @@ const curriculum = [
 ];
 
 const costs = [
-  { label: "受講料（1名）", value: "¥363,000", note: "税込", highlight: false, accent: false },
+  { label: "受講料（1名）", value: "¥363,000", note: "税別", highlight: false, accent: false },
   { label: "助成金補助（最大75%）", value: "▲¥272,250", note: "人材開発支援助成金", highlight: false, accent: true },
-  { label: "実質負担額", value: "¥90,750", note: "1名あたり約¥8万円〜", highlight: true, accent: false },
+  { label: "実質負担額", value: "¥90,750", note: "1名あたり約¥9万円〜", highlight: true, accent: false },
 ];
 
 const serif = { fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' };
@@ -91,7 +91,7 @@ export default function AiTrainingPage() {
               AI × Reskilling / 生成AI研修事業
             </p>
             <h1
-              className="text-[28px] md:text-[46px] font-normal leading-[1.7] mb-10 tracking-[0.03em]"
+              className="text-[28px] md:text-[54px] font-normal leading-[1.7] mb-10 tracking-[0.03em]"
               style={serif}
             >
               AIを「導入した」のに、<br />
@@ -105,8 +105,8 @@ export default function AiTrainingPage() {
               問題はスキル不足ではない。
               「自社の具体的な業務にどう落とし込むか」を教えない研修が、ほとんどだからだ。
               <br /><br />
-              このページは、自社でClaude実装を試みた経営者が、
-              その方法論を初めて外部に公開するプログラムの案内です。
+              このページは、自社でClaudeを実際に動かしてきた経営者が、
+              そのノウハウを北海道・関西・九州で初めて外部公開するプログラムの案内です。
             </p>
             <div className="flex items-center gap-6 flex-wrap">
               <CTAButton label="まず話を聞いてみる" />
@@ -142,7 +142,7 @@ export default function AiTrainingPage() {
                     "受講後は各自で試してもらう",
                     "研修後のフォローはなし",
                   ].map((t) => (
-                    <li key={t} className="flex gap-3 text-[14px] text-white/45 leading-[1.8]" style={serif}>
+                    <li key={t} className="flex gap-3 text-[14px] text-white/30 leading-[1.8]" style={serif}>
                       <span className="text-white/20 shrink-0">—</span>{t}
                     </li>
                   ))}
@@ -155,7 +155,7 @@ export default function AiTrainingPage() {
                     "「自社の○○業務をどう変えるか」を設計する",
                     "受講者自身の業務に合わせてプロンプトを作る",
                     "実装まで伴走し、3週間後にレビューする",
-                    "経営者が自ら実装した生事例をすべて公開する",
+                    "経営者が自ら実装した事例をすべて公開する",
                   ].map((t) => (
                     <li key={t} className="flex gap-3 text-[14px] text-white/80 leading-[1.8]" style={serif}>
                       <span className="text-[#4a7fc8] shrink-0">→</span>{t}
@@ -177,8 +177,8 @@ export default function AiTrainingPage() {
               className="text-2xl md:text-[34px] font-normal leading-[1.7] mb-14 text-white tracking-[0.03em]"
               style={serif}
             >
-              こういう状態の経営者に、<br />
-              読んでほしいと思っています。
+              このページは、こういう状態の<br />
+              経営者のために書きました。
             </h2>
           </ScrollFadeIn>
           <div className="space-y-4">
@@ -232,15 +232,18 @@ export default function AiTrainingPage() {
                 率直なフィードバックをいただきたいと考えています。
               </p>
               <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                「まだ実績がない業者に頼むのはリスクがある」という感覚は正しい。
-                だからこそ、ヒアリングで合わないと判断した場合は、
-                費用は一切発生しません。まず話だけ聞いていただければ十分です。
+                「まだ外部実績のない事業者への依頼はリスクがある」という感覚は正しい。
+                だからこそ、ヒアリングで合わないと判断した場合は、費用は一切発生しません。
+                まず話だけ聞いていただければ十分です。
               </p>
             </div>
           </ScrollFadeIn>
           <ScrollFadeIn>
-            <div className="mt-12">
+            <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-5">
               <CTAButton label="まず話を聞いてみる（無料）" />
+              <p className="text-[12px] text-white/35" style={inter}>
+                対面提供エリア：北海道 / 関西 / 九州
+              </p>
             </div>
           </ScrollFadeIn>
         </div>
@@ -264,7 +267,7 @@ export default function AiTrainingPage() {
           <div className="grid md:grid-cols-2 gap-4">
             {curriculum.map((c) => (
               <ScrollFadeIn key={c.session}>
-                <div className="flex gap-6 p-6 bg-white/[0.03] border border-white/[0.06] hover:border-[#4a7fc8]/40 transition-colors">
+                <div className={`flex gap-6 p-6 bg-white/[0.03] border transition-colors hover:border-[#4a7fc8]/40 ${["05","06"].includes(c.session) ? "border-[#4a7fc8]/40" : "border-white/[0.06]"}`}>
                   <span className="text-[11px] tracking-[0.2em] text-[#4a7fc8]/50 shrink-0 mt-1" style={inter}>
                     {c.session}
                   </span>
@@ -289,7 +292,7 @@ export default function AiTrainingPage() {
               style={serif}
             >
               補助金を使えば、<br />
-              <span className="text-[#4a7fc8]">¥36万円の研修が実質¥8万円</span>になる。
+              <span className="text-[#4a7fc8]">¥36万円台の研修が実質¥9万円台から</span>。
             </h2>
             <p className="text-[14px] text-white/50 mb-14" style={serif}>
               人材開発支援助成金（事業展開等リスキリング支援コース）は、研修費用の最大75%を国が負担します。
@@ -311,7 +314,7 @@ export default function AiTrainingPage() {
                     {item.label}
                   </p>
                   <p
-                    className={`text-[26px] font-light mb-1 ${
+                    className={`font-light mb-1 ${item.highlight ? "text-[42px]" : "text-[26px]"} ${
                       item.accent ? "text-[#4a7fc8]" : item.highlight ? "text-white" : "text-white/80"
                     }`}
                     style={inter}
@@ -339,7 +342,7 @@ export default function AiTrainingPage() {
             <div className="p-10 md:p-14 bg-white/[0.03] border border-white/[0.08]">
               <div className="space-y-8">
                 <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                  このプログラムは、コンサルティングファームで実施してきた業務効率化の設計手法と、
+                  このプログラムは、企業向け業務効率化支援の現場で培ってきた設計手法と、
                   弊社メンバーが生成AI（Claude）を実務で使う中で積み上げてきた知見から生まれています。
                 </p>
                 <div>
@@ -348,7 +351,7 @@ export default function AiTrainingPage() {
                   </p>
                   <ul className="space-y-3">
                     {[
-                      "提案・分析・調査を実案件でAI運用",
+                      "提案書・調査レポートの作成にClaude導入、反復作業を大幅削減",
                       "企業メール20件の下書き・送信準備が1分",
                       "口コミ4,000件の収集・整理",
                       "127名アンケートの分析→PPT化",
@@ -371,7 +374,7 @@ export default function AiTrainingPage() {
       </section>
 
       {/* CTA + 埋め込みフォーム */}
-      <section id="contact" className="px-6 md:px-[60px] py-[120px] md:py-[180px] bg-[#123563]">
+      <section id="contact" className="px-6 md:px-[60px] py-[120px] md:py-[180px] bg-[#0d1a2e]">
         <div className="max-w-[720px] mx-auto">
           <ScrollFadeIn>
             <div className="text-center mb-16">
@@ -383,15 +386,15 @@ export default function AiTrainingPage() {
                 className="text-2xl md:text-[38px] font-normal tracking-[0.05em] mb-6 text-white leading-[1.7]"
                 style={serif}
               >
-                まず話を聞くだけで構いません。<br />
-                売り込みはしません。
+                ご関心があれば、<br />
+                まず30分の話から。
               </h2>
               <p
                 className="text-sm md:text-[15px] text-white/60 leading-[2.2] max-w-[520px] mx-auto"
                 style={serif}
               >
-                30分のヒアリングで、このプログラムが御社に合うかどうかを正直にお伝えします。
-                合わないと判断した場合、費用は一切発生しません。
+                貴社の現状をお聞かせください。このプログラムが適合するかどうかを、率直にお伝えします。
+                決めるのはその後で構いません。
               </p>
             </div>
           </ScrollFadeIn>
