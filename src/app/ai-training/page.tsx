@@ -8,15 +8,12 @@ export const metadata: Metadata = {
     "AIを導入したのに現場が変わらない。その本当の理由と解決策を、自社で実装した経営者が公開します。初回パイロット3社限定。北海道・関西・九州で対面提供。",
 };
 
-// ← FormrunのフォームURLに変更してください（例: https://form.run/@samurai-utari-contact）
-const FORM_URL = "https://form.run/@samurai-utari-2Ti4N0pylJFYS0HR0qyi";
+const FORM_ID = "@samurai-utari-2Ti4N0pylJFYS0HR0qyi";
 
 function CTAButton({ label = "話を聞いてみる" }: { label?: string }) {
   return (
     <a
-      href={FORM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+      href="#contact"
       className="inline-block px-10 py-4 bg-[#4a7fc8] text-white text-sm tracking-[0.15em] hover:bg-[#3a6ab8] transition-all"
       style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
     >
@@ -368,33 +365,46 @@ export default function AiTrainingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 md:px-[60px] py-[120px] md:py-[180px] bg-[#123563] text-center">
-        <ScrollFadeIn>
-          <p className="text-[13px] tracking-[0.4em] text-white/50 mb-12">
-            <span className="text-white/90 font-medium" style={serif}>パイロット募集</span>
-            <span className="text-[10px] ml-3 uppercase text-white/35">/ 3社限定</span>
-          </p>
-          <h2
-            className="text-2xl md:text-[38px] font-normal tracking-[0.05em] mb-6 text-white leading-[1.7]"
-            style={serif}
-          >
-            まず話を聞くだけで構いません。<br />
-            売り込みはしません。
-          </h2>
-          <p
-            className="text-sm md:text-[15px] text-white/60 mb-14 leading-[2.2] max-w-[520px] mx-auto"
-            style={serif}
-          >
-            30分のヒアリングで、このプログラムが御社に合うかどうかを正直にお伝えします。
-            合わないと判断した場合、費用は一切発生しません。
-          </p>
-          <CTAButton label="まず話を聞いてみる（無料）" />
-          <p className="text-[12px] text-white/30 mt-6" style={serif}>
-            フォーム送信後、担当者よりご連絡します。Zoom対応。
-          </p>
-        </ScrollFadeIn>
+      {/* CTA + 埋め込みフォーム */}
+      <section id="contact" className="px-6 md:px-[60px] py-[120px] md:py-[180px] bg-[#123563]">
+        <div className="max-w-[720px] mx-auto">
+          <ScrollFadeIn>
+            <div className="text-center mb-16">
+              <p className="text-[13px] tracking-[0.4em] text-white/50 mb-12">
+                <span className="text-white/90 font-medium" style={serif}>パイロット募集</span>
+                <span className="text-[10px] ml-3 uppercase text-white/35">/ 3社限定</span>
+              </p>
+              <h2
+                className="text-2xl md:text-[38px] font-normal tracking-[0.05em] mb-6 text-white leading-[1.7]"
+                style={serif}
+              >
+                まず話を聞くだけで構いません。<br />
+                売り込みはしません。
+              </h2>
+              <p
+                className="text-sm md:text-[15px] text-white/60 leading-[2.2] max-w-[520px] mx-auto"
+                style={serif}
+              >
+                30分のヒアリングで、このプログラムが御社に合うかどうかを正直にお伝えします。
+                合わないと判断した場合、費用は一切発生しません。
+              </p>
+            </div>
+          </ScrollFadeIn>
+          <ScrollFadeIn>
+            <div className="bg-white rounded-sm overflow-hidden">
+              <iframe
+                src={`https://form.run/embed/${FORM_ID}`}
+                width="100%"
+                height="800"
+                style={{ border: "none", display: "block" }}
+                loading="lazy"
+                title="お問い合わせフォーム"
+              />
+            </div>
+          </ScrollFadeIn>
+        </div>
       </section>
+
 
     </main>
   );
