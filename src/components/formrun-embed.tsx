@@ -1,37 +1,43 @@
 "use client";
 
-import Script from "next/script";
+import { useEffect } from "react";
+
+const SDK_URL = "https://sdk.form.run/js/v2/embed.js";
 
 export function FormrunEmbed({ formId }: { formId: string }) {
-  function onLoad() {
-    const fix = () => {
-      const iframe = document.querySelector(
-        ".formrun-embed iframe"
-      ) as HTMLIFrameElement | null;
-      if (!iframe) return;
-      if (parseInt(iframe.style.height) < 100) {
-        iframe.style.minHeight = "800px";
-        iframe.style.height = "800px";
-      }
+  useEffect(() => {
+    // 既存のSDKスクリプトを毎回削除して再注入（クライアントサイドナビゲーション対策）
+    const old = document.querySelector(`script[src="${SDK_URL}"]`);
+    if (old) old.remove();
+
+    const script = document.createElement("script");
+    script.src = SDK_URL;
+    script.onload = () => {
+      const fix = () => {
+        const iframe = document.querySelector(
+          ".formrun-embed iframe"
+        ) as HTMLIFrameElement | null;
+        if (!iframe) return;
+        if (!iframe.style.height || parseInt(iframe.style.height) < 100) {
+          iframe.style.height = "800px";
+        }
+      };
+      fix();
+      setTimeout(fix, 500);
+      setTimeout(fix, 2000);
     };
-    // SDK直後 + 少し待ってから再チェック
-    fix();
-    setTimeout(fix, 1000);
-    setTimeout(fix, 3000);
-  }
+    document.head.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   return (
-    <>
-      <div
-        className="formrun-embed"
-        data-formrun-form={formId}
-        data-formrun-redirect="true"
-      />
-      <Script
-        src="https://sdk.form.run/js/v2/embed.js"
-        strategy="afterInteractive"
-        onLoad={onLoad}
-      />
-    </>
+    <div
+      className="formrun-embed"
+      data-formrun-form={formId}
+      data-formrun-redirect="true"
+    />
   );
 }
