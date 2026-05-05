@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { ScrollFadeIn } from "@/components/scroll-fade-in";
+import { FormrunEmbed } from "@/components/formrun-embed";
 
 export const metadata: Metadata = {
   title: "生成AI研修 パイロット募集 | 株式会社サムライウタリ",
@@ -393,14 +393,8 @@ export default function AiTrainingPage() {
           </ScrollFadeIn>
           <ScrollFadeIn>
             <div className="bg-white rounded-sm p-2">
-              <style>{`.formrun-embed iframe { min-height: 800px !important; }`}</style>
-              <div
-                className="formrun-embed"
-                data-formrun-form={FORM_ID}
-                data-formrun-redirect="true"
-              />
+              <FormrunEmbed formId={FORM_ID} />
             </div>
-            <Script src="https://sdk.form.run/js/v2/embed.js" strategy="afterInteractive" />
           </ScrollFadeIn>
         </div>
       </section>
