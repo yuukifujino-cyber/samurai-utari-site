@@ -132,32 +132,22 @@ export default function AiTrainingPage() {
             </h2>
           </ScrollFadeIn>
           <ScrollFadeIn>
-            <div className="mb-14 p-8 md:p-10 bg-white/[0.03] border border-white/[0.08]">
-              <p className="text-[11px] tracking-[0.3em] text-white/30 mb-8 uppercase" style={inter}>
-                AI研修の"その後"——よくある実態
-              </p>
-              <div className="space-y-6">
+            <div className="mb-14">
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
                 {[
-                  { label: "研修直後：理解度・受講意欲", pct: 90, color: "from-[#4a7fc8]/70 to-[#4a7fc8]/30", note: "高い" },
-                  { label: "研修から3ヶ月後：業務で活用し続けている社員", pct: 22, color: "from-[#4a7fc8]/40 to-[#4a7fc8]/10", note: "少ない" },
-                  { label: "半年後：新しい業務フローとして定着している", pct: 8, color: "from-white/20 to-white/5", note: "ほとんどいない" },
-                ].map((row) => (
-                  <div key={row.label}>
-                    <div className="flex justify-between items-baseline mb-2 gap-4">
-                      <span className="text-[13px] md:text-[14px] text-white/60 leading-[1.6]" style={serif}>{row.label}</span>
-                      <span className="text-[11px] text-white/30 shrink-0" style={inter}>{row.note}</span>
-                    </div>
-                    <div className="h-[4px] bg-white/[0.05] rounded-full overflow-hidden">
-                      <div
-                        className={`h-full bg-gradient-to-r ${row.color} rounded-full transition-all`}
-                        style={{ width: `${row.pct}%` }}
-                      />
-                    </div>
+                  { num: "34%", label: "業務変革まで実現できた企業", sub: "残り66%は未達" },
+                  { num: "37%", label: "AIを導入したが業務プロセスにほぼ変化なし", sub: "表面的活用にとどまる" },
+                  { num: "25%", label: "AIの検証から本番移行まで完了した企業", sub: "大半が検証止まり" },
+                ].map((s) => (
+                  <div key={s.num} className="p-6 md:p-8 bg-white/[0.03] border border-white/[0.06]">
+                    <p className="text-[48px] md:text-[56px] font-light text-[#4a7fc8] leading-none mb-3" style={inter}>{s.num}</p>
+                    <p className="text-[13px] text-white/55 leading-[1.8] mb-1" style={serif}>{s.label}</p>
+                    <p className="text-[11px] text-white/25" style={inter}>{s.sub}</p>
                   </div>
                 ))}
               </div>
-              <p className="text-[11px] text-white/20 mt-8 leading-[2]" style={serif}>
-                ※ 複数企業へのヒアリングをもとにした傾向の概念図です。個社の状況により異なります。
+              <p className="text-[11px] text-white/20 leading-[2]" style={serif}>
+                出典：Deloitte「State of AI in the Enterprise 2026」（n=3,235社、グローバル企業リーダー調査 2025年実施）
               </p>
             </div>
           </ScrollFadeIn>
@@ -232,53 +222,6 @@ export default function AiTrainingPage() {
         </div>
       </section>
 
-      {/* パイロット限定募集 - 正直に逆手に取る */}
-      <section className="relative px-6 md:px-[60px] py-[120px] md:py-[160px] overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.15]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, rgba(74,127,200,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(74,127,200,0.08) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-        />
-        <div className="relative max-w-[900px] mx-auto">
-          <ScrollFadeIn>
-            <SectionLabel ja="パイロット募集" en="Pilot Program" />
-            <div className="inline-block px-4 py-1.5 border border-[#4a7fc8]/50 text-[#4a7fc8] text-[11px] tracking-[0.2em] mb-10" style={inter}>
-              残り 3社 限定
-            </div>
-            <h2
-              className="text-2xl md:text-[34px] font-normal leading-[1.7] mb-10 text-white tracking-[0.03em]"
-              style={serif}
-            >
-              正直に言います。<br />
-              このプログラムは、<span className="text-[#4a7fc8]">まだ他社への実績がありません</span>。
-            </h2>
-            <div className="p-10 bg-white/[0.03] border border-white/[0.10] max-w-[720px]">
-              <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2] mb-8" style={serif}>
-                自社での実装実績はあります。ただ、他の会社に提供するのはこれが初めてです。
-                だから最初の3社には、通常より低い投資でご参加いただく代わりに、
-                率直なフィードバックをいただきたいと考えています。
-              </p>
-              <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                「まだ外部実績のない事業者への依頼はリスクがある」という感覚は正しい。
-                だからこそ、ヒアリングで合わないと判断した場合は、費用は一切発生しません。
-                まず話だけ聞いていただければ十分です。
-              </p>
-            </div>
-          </ScrollFadeIn>
-          <ScrollFadeIn>
-            <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-5">
-              <CTAButton label="まず話を聞いてみる（無料）" />
-              <p className="text-[12px] text-white/35" style={inter}>
-                対面提供エリア：北海道 / 関西 / 九州
-              </p>
-            </div>
-          </ScrollFadeIn>
-        </div>
-      </section>
-
       {/* プログラム概要 */}
       <section className="px-6 md:px-[60px] py-[120px] md:py-[160px] bg-[#0a0e14]">
         <div className="max-w-[900px] mx-auto">
@@ -312,8 +255,49 @@ export default function AiTrainingPage() {
         </div>
       </section>
 
-      {/* 補助金 */}
+      {/* プログラムについて */}
       <section className="px-6 md:px-[60px] py-[120px] md:py-[160px]">
+        <div className="max-w-[900px] mx-auto">
+          <ScrollFadeIn>
+            <SectionLabel ja="このプログラムについて" en="About This Program" />
+          </ScrollFadeIn>
+          <ScrollFadeIn>
+            <div className="p-10 md:p-14 bg-white/[0.03] border border-white/[0.08]">
+              <div className="space-y-8">
+                <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
+                  このプログラムは、企業向け業務効率化支援の現場で培ってきた設計手法と、
+                  弊社メンバーが生成AI（Claude）を実務で使う中で積み上げてきた知見から生まれています。
+                </p>
+                <div>
+                  <p className="text-[12px] tracking-[0.2em] text-[#4a7fc8]/70 mb-5 uppercase" style={inter}>
+                    実際に変えてきた業務（一部）
+                  </p>
+                  <ul className="space-y-3">
+                    {[
+                      "提案書・調査レポートの作成にClaude導入、反復作業を大幅削減",
+                      "企業メール20件の下書き・送信準備が1分",
+                      "口コミ4,000件の収集・整理",
+                      "127名アンケートの分析→PPT化",
+                      "経営管理ダッシュボードの作成・運用にAI導入",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-3 text-[14px] md:text-[15px] text-white/70 leading-[1.8]" style={serif}>
+                        <span className="text-[#4a7fc8] shrink-0">→</span>{item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
+                  「研修で終わらせない」という設計思想は、現場で動かしてきた経験から来ています。
+                  なお、このページおよび弊社コーポレートサイト自体も、生成AIを活用して制作しています。
+                </p>
+              </div>
+            </div>
+          </ScrollFadeIn>
+        </div>
+      </section>
+
+      {/* 補助金 */}
+      <section className="px-6 md:px-[60px] py-[120px] md:py-[160px] bg-[#0a0e14]">
         <div className="max-w-[900px] mx-auto">
           <ScrollFadeIn>
             <SectionLabel ja="費用" en="Investment" />
@@ -362,42 +346,48 @@ export default function AiTrainingPage() {
         </div>
       </section>
 
-      {/* プログラムについて */}
-      <section className="px-6 md:px-[60px] py-[120px] md:py-[160px] bg-[#0a0e14]">
-        <div className="max-w-[900px] mx-auto">
+      {/* パイロット限定募集 - 正直に逆手に取る */}
+      <section className="relative px-6 md:px-[60px] py-[120px] md:py-[160px] overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.15]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(74,127,200,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(74,127,200,0.08) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+        <div className="relative max-w-[900px] mx-auto">
           <ScrollFadeIn>
-            <SectionLabel ja="このプログラムについて" en="About This Program" />
+            <SectionLabel ja="パイロット募集" en="Pilot Program" />
+            <div className="inline-block px-4 py-1.5 border border-[#4a7fc8]/50 text-[#4a7fc8] text-[11px] tracking-[0.2em] mb-10" style={inter}>
+              残り 3社 限定
+            </div>
+            <h2
+              className="text-2xl md:text-[34px] font-normal leading-[1.7] mb-10 text-white tracking-[0.03em]"
+              style={serif}
+            >
+              正直に言います。<br />
+              このプログラムは、<span className="text-[#4a7fc8]">まだ他社への実績がありません</span>。
+            </h2>
+            <div className="p-10 bg-white/[0.03] border border-white/[0.10] max-w-[720px]">
+              <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2] mb-8" style={serif}>
+                自社での実装実績はあります。ただ、他の会社に提供するのはこれが初めてです。
+                だから最初の3社には、通常より低い投資でご参加いただく代わりに、
+                率直なフィードバックをいただきたいと考えています。
+              </p>
+              <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
+                「まだ外部実績のない事業者への依頼はリスクがある」という感覚は正しい。
+                だからこそ、ヒアリングで合わないと判断した場合は、費用は一切発生しません。
+                まず話だけ聞いていただければ十分です。
+              </p>
+            </div>
           </ScrollFadeIn>
           <ScrollFadeIn>
-            <div className="p-10 md:p-14 bg-white/[0.03] border border-white/[0.08]">
-              <div className="space-y-8">
-                <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                  このプログラムは、企業向け業務効率化支援の現場で培ってきた設計手法と、
-                  弊社メンバーが生成AI（Claude）を実務で使う中で積み上げてきた知見から生まれています。
-                </p>
-                <div>
-                  <p className="text-[12px] tracking-[0.2em] text-[#4a7fc8]/70 mb-5 uppercase" style={inter}>
-                    実際に変えてきた業務（一部）
-                  </p>
-                  <ul className="space-y-3">
-                    {[
-                      "提案書・調査レポートの作成にClaude導入、反復作業を大幅削減",
-                      "企業メール20件の下書き・送信準備が1分",
-                      "口コミ4,000件の収集・整理",
-                      "127名アンケートの分析→PPT化",
-                      "経営管理ダッシュボードの作成・運用にAI導入",
-                    ].map((item) => (
-                      <li key={item} className="flex gap-3 text-[14px] md:text-[15px] text-white/70 leading-[1.8]" style={serif}>
-                        <span className="text-[#4a7fc8] shrink-0">→</span>{item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                  「研修で終わらせない」という設計思想は、現場で動かしてきた経験から来ています。
-                  なお、このページおよび弊社コーポレートサイト自体も、生成AIを活用して制作しています。
-                </p>
-              </div>
+            <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-5">
+              <CTAButton label="まず話を聞いてみる（無料）" />
+              <p className="text-[12px] text-white/35" style={inter}>
+                対面提供エリア：北海道 / 関西 / 九州
+              </p>
             </div>
           </ScrollFadeIn>
         </div>
