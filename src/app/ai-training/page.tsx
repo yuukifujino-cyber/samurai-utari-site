@@ -4,7 +4,7 @@ import { ScrollFadeIn } from "@/components/scroll-fade-in";
 import { FormrunEmbed } from "@/components/formrun-embed";
 
 export const metadata: Metadata = {
-  title: "生成AI研修 パイロット募集 | 株式会社サムライウタリ",
+  title: "BizAI Training パイロット募集 | 株式会社サムライウタリ",
   description:
     "AIを導入したのに現場が変わらない。その本当の理由と解決策を、自社で実装した経営者が公開します。初回パイロット3社限定。北海道・関西・九州で対面提供。",
 };
@@ -42,9 +42,9 @@ const curriculum = [
 ];
 
 const costs = [
-  { label: "受講料（1名）", value: "¥363,000", note: "税別", highlight: false, accent: false },
-  { label: "助成金補助（最大75%）", value: "▲¥272,250", note: "人材開発支援助成金", highlight: false, accent: true },
-  { label: "実質負担額", value: "¥90,750", note: "1名あたり約¥9万円〜", highlight: true, accent: false },
+  { label: "受講料（1名）", value: "¥400,000", note: "税別", highlight: false, accent: false },
+  { label: "助成金補助（最大75%）", value: "▲¥300,000", note: "人材開発支援助成金", highlight: false, accent: true },
+  { label: "実質負担額", value: "¥100,000", note: "1名あたり¥10万円", highlight: true, accent: false },
 ];
 
 const serif = { fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' };
@@ -88,7 +88,7 @@ export default function AiTrainingPage() {
         <div className="relative max-w-[900px] mx-auto">
           <ScrollFadeIn>
             <p className="text-[11px] tracking-[0.4em] text-white/40 mb-10 uppercase" style={inter}>
-              AI × Reskilling / 生成AI研修事業
+              BizAI Training / 生成AI業務研修
             </p>
             <h1
               className="text-[28px] md:text-[54px] font-normal leading-[1.7] mb-10 tracking-[0.03em]"
@@ -127,7 +127,7 @@ export default function AiTrainingPage() {
               className="text-2xl md:text-[34px] font-normal leading-[1.8] mb-10 text-white tracking-[0.03em] max-w-[760px]"
               style={serif}
             >
-              研修を受けても業務が変わらない会社には、<br />
+              研修を受けても業務が変わらない会社には、<br className="hidden md:block" />
               <span className="text-[#4a7fc8]">共通した構造的な理由</span>があります。
             </h2>
           </ScrollFadeIn>
@@ -197,7 +197,7 @@ export default function AiTrainingPage() {
               className="text-2xl md:text-[34px] font-normal leading-[1.7] mb-14 text-white tracking-[0.03em]"
               style={serif}
             >
-              このページは、こういう状態の<br />
+              このページは、こういう状態の<br className="hidden md:block" />
               経営者のために書きました。
             </h2>
           </ScrollFadeIn>
@@ -231,9 +231,12 @@ export default function AiTrainingPage() {
               className="text-2xl md:text-[34px] font-normal leading-[1.7] mb-4 text-white tracking-[0.03em]"
               style={serif}
             >
-              16時間・全8回の<span className="text-[#4a7fc8]">実装型</span>プログラム
+              BizAI Training — 16時間・全8回の<span className="text-[#4a7fc8]">実装型</span>プログラム
             </h2>
-            <p className="text-[14px] text-white/50 mb-14" style={serif}>
+            <p className="text-[15px] text-white/70 leading-[2.0] mb-4 max-w-[720px]" style={serif}>
+              業務整理・課題抽出・施策検討をワークショップ形式で体験し、DXを推進できる人材を育成します。Claude活用を通じて、翌日から実践できる業務改善ノウハウを習得します。
+            </p>
+            <p className="text-[13px] text-white/40 mb-14" style={serif}>
               2時間 × 8セッション。スキル習得で終わらず、自社業務への実装まで完走する設計。
             </p>
           </ScrollFadeIn>
@@ -306,7 +309,7 @@ export default function AiTrainingPage() {
               style={serif}
             >
               補助金を使えば、<br />
-              <span className="text-[#4a7fc8]">¥36万円台の研修が実質¥9万円台から</span>。
+              <span className="text-[#4a7fc8]">¥40万円の研修が実質¥10万円から</span>。
             </h2>
             <p className="text-[14px] text-white/50 mb-14" style={serif}>
               人材開発支援助成金（事業展開等リスキリング支援コース）は、研修費用の最大75%を国が負担します。
