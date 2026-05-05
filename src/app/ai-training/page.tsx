@@ -105,7 +105,7 @@ export default function AiTrainingPage() {
               問題はスキル不足ではありません。
               「自社の具体的な業務にどう落とし込むか」を教えない研修が、ほとんどだからです。
               <br /><br />
-              このページは、自社でClaudeを実際に動かしてきた経営者が、
+              このページは、Claudeを実際に動かしてきた弊社メンバーが、
               そのノウハウを北海道・関西・九州で初めて外部公開するプログラムの案内です。
             </p>
             <div className="flex items-center gap-6 flex-wrap">
