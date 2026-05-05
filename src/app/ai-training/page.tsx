@@ -102,8 +102,8 @@ export default function AiTrainingPage() {
               className="text-[14px] md:text-[16px] text-white/60 leading-[2.2] mb-14 max-w-[600px]"
               style={serif}
             >
-              問題はスキル不足ではない。
-              「自社の具体的な業務にどう落とし込むか」を教えない研修が、ほとんどだからだ。
+              問題はスキル不足ではありません。
+              「自社の具体的な業務にどう落とし込むか」を教えない研修が、ほとんどだからです。
               <br /><br />
               このページは、自社でClaudeを実際に動かしてきた経営者が、
               そのノウハウを北海道・関西・九州で初めて外部公開するプログラムの案内です。
@@ -128,8 +128,38 @@ export default function AiTrainingPage() {
               style={serif}
             >
               研修を受けても業務が変わらない会社には、<br />
-              <span className="text-[#4a7fc8]">共通した構造的な理由</span>がある。
+              <span className="text-[#4a7fc8]">共通した構造的な理由</span>があります。
             </h2>
+          </ScrollFadeIn>
+          <ScrollFadeIn>
+            <div className="mb-14 p-8 md:p-10 bg-white/[0.03] border border-white/[0.08]">
+              <p className="text-[11px] tracking-[0.3em] text-white/30 mb-8 uppercase" style={inter}>
+                AI研修の"その後"——よくある実態
+              </p>
+              <div className="space-y-6">
+                {[
+                  { label: "研修直後：理解度・受講意欲", pct: 90, color: "from-[#4a7fc8]/70 to-[#4a7fc8]/30", note: "高い" },
+                  { label: "研修から3ヶ月後：業務で活用し続けている社員", pct: 22, color: "from-[#4a7fc8]/40 to-[#4a7fc8]/10", note: "少ない" },
+                  { label: "半年後：新しい業務フローとして定着している", pct: 8, color: "from-white/20 to-white/5", note: "ほとんどいない" },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="flex justify-between items-baseline mb-2 gap-4">
+                      <span className="text-[13px] md:text-[14px] text-white/60 leading-[1.6]" style={serif}>{row.label}</span>
+                      <span className="text-[11px] text-white/30 shrink-0" style={inter}>{row.note}</span>
+                    </div>
+                    <div className="h-[4px] bg-white/[0.05] rounded-full overflow-hidden">
+                      <div
+                        className={`h-full bg-gradient-to-r ${row.color} rounded-full transition-all`}
+                        style={{ width: `${row.pct}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[11px] text-white/20 mt-8 leading-[2]" style={serif}>
+                ※ 複数企業へのヒアリングをもとにした傾向の概念図です。個社の状況により異なります。
+              </p>
+            </div>
           </ScrollFadeIn>
           <ScrollFadeIn>
             <div className="grid md:grid-cols-2 gap-8">
