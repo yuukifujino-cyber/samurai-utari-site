@@ -293,7 +293,7 @@ export default function AiTrainingPage() {
             </h2>
             <p className="text-[14px] text-white/50 mb-14" style={serif}>
               人材開発支援助成金（事業展開等リスキリング支援コース）は、研修費用の最大75%を国が負担します。
-              申請は提携社労士が対応するため、経営者の手間はほぼかかりません。
+              申請には社労士が必要になります。すでにお付き合いのある社労士がいればその方に依頼を。いない場合は、探し方のご案内もします。
             </p>
           </ScrollFadeIn>
           <ScrollFadeIn>
@@ -329,36 +329,40 @@ export default function AiTrainingPage() {
         </div>
       </section>
 
-      {/* 講師 - 洞察の深さで権威を出す */}
+      {/* プログラムについて */}
       <section className="px-6 md:px-[60px] py-[120px] md:py-[160px] bg-[#0a0e14]">
         <div className="max-w-[900px] mx-auto">
           <ScrollFadeIn>
-            <SectionLabel ja="なぜ僕が教えるか" en="Why Me" />
+            <SectionLabel ja="このプログラムについて" en="About This Program" />
           </ScrollFadeIn>
           <ScrollFadeIn>
             <div className="p-10 md:p-14 bg-white/[0.03] border border-white/[0.08]">
-              <p className="text-[11px] tracking-[0.3em] text-[#4a7fc8]/60 mb-4" style={inter}>INSTRUCTOR</p>
-              <h3 className="text-[26px] md:text-[32px] font-normal text-white mb-2" style={serif}>
-                藤野 悠生
-              </h3>
-              <p className="text-[13px] text-[#4a7fc8] mb-10 tracking-[0.05em]" style={serif}>
-                株式会社サムライウタリ 代表取締役
-              </p>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                  SES人材紹介・経営コンサル・AI実装支援の三事業を経営しながら、
-                  自社業務へのClaude活用を1年以上実践してきた。
-                  エンジニアではない。プログラムも書けない。
-                  それでも、4時間かかっていた業務を10分に変えた。
+                  このプログラムは、コンサルティングファームで実施してきた業務効率化の設計手法と、
+                  弊社メンバーが生成AI（Claude）を実務で使う中で積み上げてきた知見から生まれています。
                 </p>
+                <div>
+                  <p className="text-[12px] tracking-[0.2em] text-[#4a7fc8]/70 mb-5 uppercase" style={inter}>
+                    実際に変えてきた業務（一部）
+                  </p>
+                  <ul className="space-y-3">
+                    {[
+                      "提案・分析・調査を実案件でAI運用",
+                      "企業メール20件の下書き・送信準備が1分",
+                      "口コミ4,000件の収集・整理",
+                      "127名アンケートの分析→PPT化",
+                      "経営管理ダッシュボードの作成・運用にAI導入",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-3 text-[14px] md:text-[15px] text-white/70 leading-[1.8]" style={serif}>
+                        <span className="text-[#4a7fc8] shrink-0">→</span>{item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                  専門家が「AIの可能性」を語る研修には飽きている。
-                  僕が提供するのは「自社で実際に使っている人間が、どう考え、どう実装したか」の話だ。
-                  それは教科書には書いていない。
-                </p>
-                <p className="text-[15px] md:text-[16px] text-white/75 leading-[2.2]" style={serif}>
-                  だからこのプログラムは、AIの知識を教えるより先に、
-                  「あなたの会社の○○業務をどう変えるか」を一緒に考えることから始める。
+                  「研修で終わらせない」という設計思想は、現場で動かしてきた経験から来ています。
+                  なお、このページおよび弊社コーポレートサイト自体も、生成AIを活用して制作しています。
                 </p>
               </div>
             </div>
