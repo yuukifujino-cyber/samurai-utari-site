@@ -410,7 +410,7 @@ export default function AiTrainingPage() {
                 style={serif}
               >
                 ご関心があれば、<br />
-                まず30分の話から。
+                まず30分のお話から。
               </h2>
               <p
                 className="text-sm md:text-[15px] text-white/60 leading-[2.2] max-w-[520px] mx-auto"
