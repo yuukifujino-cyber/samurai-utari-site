@@ -1,23 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { anthropic } from '@/lib/anthropic'
+import type { DiagnosisInput, DiagnosisResult } from '@/types/diagnosis'
 
-export interface DiagnosisInput {
-  job: string
-  ip: string
-  revenueModel: string
-  developmentIdea: string
-  scaleBarrier: string
-}
-
-export interface DiagnosisResult {
-  mvpName: string
-  mvpDescription: string
-  mvpType: 'A' | 'B' | 'C' | 'D'
-  traditionalCost: string
-  traditionalDuration: string
-  expectedImpact: string
-  nextAction: string
-}
+export const maxDuration = 30
 
 const MAX_FIELD_LENGTH = 500
 
@@ -51,6 +36,13 @@ function isDiagnosisResult(obj: unknown): obj is DiagnosisResult {
 export async function POST(request: NextRequest) {
   if (!process.env.ANTHROPIC_API_KEY) {
     return NextResponse.json({ error: 'サービス設定エラー' }, { status: 503 })
+  }
+
+  const referer = request.headers.get('referer') ?? ''
+  const host = request.headers.get('host') ?? ''
+  const isLocalDev = host.includes('localhost')
+  if (!isLocalDev && !referer.includes('samurai-utari')) {
+    return NextResponse.json({ error: '不正なリクエスト' }, { status: 403 })
   }
 
   let rawBody: unknown

@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import type { DiagnosisResult as ResultType } from '@/app/api/diagnose/route'
+import type { DiagnosisResult as ResultType } from '@/types/diagnosis'
 
 const serif = { fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }
 const inter = { fontFamily: '"Inter", sans-serif' }
@@ -62,13 +61,13 @@ export function DiagnosisResult({ result }: Props) {
         </p>
       </div>
 
-      <Link
+      <a
         href="#cta"
         className="block w-full text-center px-8 py-4 bg-[#4a7fc8] text-white text-sm tracking-[0.15em] hover:bg-[#3a6ab8] transition-all"
         style={serif}
       >
         この{result.mvpName}を作るセッションに申し込む
-      </Link>
+      </a>
     </div>
   )
 }

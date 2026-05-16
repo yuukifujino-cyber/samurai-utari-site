@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { DiagnosisInput, DiagnosisResult as ResultType } from '@/app/api/diagnose/route'
+import type { DiagnosisInput, DiagnosisResult as ResultType } from '@/types/diagnosis'
 import { DiagnosisResult } from './DiagnosisResult'
 
 const serif = { fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }
@@ -59,8 +59,8 @@ export function DiagnosisTool() {
       }
       const data: ResultType = await res.json()
       setResult(data)
-    } catch {
-      setError('診断中にエラーが発生しました。もう一度お試しください。')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '診断中にエラーが発生しました。もう一度お試しください。')
     } finally {
       setLoading(false)
     }
