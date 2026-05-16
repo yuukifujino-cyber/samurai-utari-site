@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ClaudecodeHero } from '@/components/claudecode/ClaudecodeHero'
 import { CostComparison } from '@/components/claudecode/CostComparison'
 import { DiagnosisTool } from '@/components/claudecode/DiagnosisTool'
+import { ClaudecodeCTA } from '@/components/claudecode/ClaudecodeCTA'
 
 export const metadata: Metadata = {
   title: '開発するかどうかの判断基準が、変わった。| 株式会社サムライウタリ',
@@ -29,8 +30,7 @@ export default function ClaudecodePage() {
       <ClaudecodeHero />
       <CostComparison />
       <DiagnosisTool />
-
-      {/* 後続セクション（Task 6 で追加） */}
+      <ClaudecodeCTA />
     </main>
   )
 }
