@@ -19,8 +19,51 @@ export interface DiagnosisResult {
   nextAction: string
 }
 
+const MAX_FIELD_LENGTH = 500
+
+function validateInput(input: unknown): input is DiagnosisInput {
+  if (typeof input !== 'object' || input === null) return false
+  const o = input as Record<string, unknown>
+  const fields: (keyof DiagnosisInput)[] = ['job', 'ip', 'revenueModel', 'developmentIdea', 'scaleBarrier']
+  for (const field of fields) {
+    const val = o[field]
+    if (typeof val !== 'string' || val.trim() === '' || val.length > MAX_FIELD_LENGTH) {
+      return false
+    }
+  }
+  return true
+}
+
+function isDiagnosisResult(obj: unknown): obj is DiagnosisResult {
+  if (typeof obj !== 'object' || obj === null) return false
+  const o = obj as Record<string, unknown>
+  return (
+    typeof o.mvpName === 'string' &&
+    typeof o.mvpDescription === 'string' &&
+    ['A', 'B', 'C', 'D'].includes(o.mvpType as string) &&
+    typeof o.traditionalCost === 'string' &&
+    typeof o.traditionalDuration === 'string' &&
+    typeof o.expectedImpact === 'string' &&
+    typeof o.nextAction === 'string'
+  )
+}
+
 export async function POST(request: NextRequest) {
-  const body: DiagnosisInput = await request.json()
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return NextResponse.json({ error: 'サービス設定エラー' }, { status: 503 })
+  }
+
+  let rawBody: unknown
+  try {
+    rawBody = await request.json()
+  } catch {
+    return NextResponse.json({ error: 'リクエストの形式が正しくありません' }, { status: 400 })
+  }
+
+  if (!validateInput(rawBody)) {
+    return NextResponse.json({ error: '入力内容を確認してください' }, { status: 400 })
+  }
+  const body = rawBody as DiagnosisInput
 
   const prompt = `あなたはClaudeCodeを使ったMVP開発の専門家です。
 以下の個人事業主の情報を元に、具体的なMVP診断結果をJSON形式で生成してください。
@@ -49,17 +92,34 @@ D: LP＋フォーム（自前の集客ページ）
   "nextAction": "2時間セッションで最初に作るべきもの（1文）"
 }`
 
-  const message = await anthropic.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 1024,
-    messages: [{ role: 'user', content: prompt }],
-  })
+  let message
+  try {
+    message = await anthropic.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 1024,
+      messages: [{ role: 'user', content: prompt }],
+    })
+  } catch (err) {
+    console.error('[diagnose] Anthropic API error:', err)
+    return NextResponse.json({ error: '診断サービスに接続できませんでした' }, { status: 503 })
+  }
 
   const content = message.content[0]
   if (content.type !== 'text') {
     return NextResponse.json({ error: '診断に失敗しました' }, { status: 500 })
   }
 
-  const result: DiagnosisResult = JSON.parse(content.text)
+  let result: DiagnosisResult
+  try {
+    const parsed = JSON.parse(content.text)
+    if (!isDiagnosisResult(parsed)) {
+      throw new Error('Invalid result structure')
+    }
+    result = parsed
+  } catch {
+    console.error('[diagnose] JSON parse failed:', content.text)
+    return NextResponse.json({ error: '診断結果の解析に失敗しました' }, { status: 500 })
+  }
+
   return NextResponse.json(result)
 }
