@@ -12,13 +12,13 @@ const services = [
     href: null,
   },
   {
-    tag: "AI × Reskilling",
-    name: "生成AI研修事業",
-    keyPhrase: "補助金フル活用型 AIリスキリング",
+    tag: "ClaudeCode × MVP",
+    name: "生成AI開発事業",
+    keyPhrase: "作るか、作らないかの判断基準が、変わった。",
     description:
-      "地方中小企業のための、補助金フル活用型AIリスキリング。研修設計から助成金申請までを巻き取り、顧客の作業は捺印と提出のみ。スキル習得で終わらず、現場で動く人材を残す。",
+      "個人事業主・発信者のための、ClaudeCodeを使ったMVP開発支援。業務の課題やビジネスのアイデアをAIが診断し、2時間のセッションで実際に動くプロダクトを作る。かつて数百万円かかったものが、月2万円のツール代で作れる時代になった。",
     comingSoon: false,
-    href: "/ai-training",
+    href: "/claude-code-mvp",
   },
   {
     tag: "Talent × Architecture",
