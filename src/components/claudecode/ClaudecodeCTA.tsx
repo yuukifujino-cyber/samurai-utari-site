@@ -26,7 +26,7 @@ export function ClaudecodeCTA() {
               className="text-sm md:text-[15px] text-white/60 leading-[2.2] max-w-[520px] mx-auto"
               style={serif}
             >
-              2時間のセッションで、あなたのIPをプロダクトに変えます。
+              2時間のセッションで、診断結果を実際に動くプロダクトにします。
               まずは話だけでも構いません。
             </p>
           </div>

@@ -57,30 +57,35 @@ export async function POST(request: NextRequest) {
   }
   const body = rawBody as DiagnosisInput
 
-  const prompt = `あなたはClaudeCodeを使ったMVP開発の専門家です。
-以下の個人事業主の情報を元に、具体的なMVP診断結果をJSON形式で生成してください。
+  const prompt = `あなたはClaudeCodeを使ったプロダクト開発の専門家です。
+以下の個人事業主の情報を元に、具体的な診断結果をJSON形式で生成してください。
 
 【入力情報】
 職業・専門領域：${body.job}
-IP・メソッド：${body.ip}
+得意なこと・よく相談されること：${body.ip}
 主な収益モデル：${body.revenueModel}
-作りたかった開発アイデア：${body.developmentIdea}
+業務の摩擦・あったらいいと思うもの：${body.developmentIdea}
 スケールを妨げる壁：${body.scaleBarrier}
 
-【MVPの型（最も適したものを1つ選ぶ）】
+【診断の方針】
+- 社内ツール（業務効率化・自動化）か、外部プロダクト（フォロワー・クライアント向け）か、最も効果が高い方向で提案する
+- 入力者がエンジニアでなくても伝わる平易な言葉で説明する
+- 「作りたいものがわからない」という前提で入力された場合も、具体的なプロダクトを提案する
+
+【プロダクトの型（最も適したものを1つ選ぶ）】
 A: AI診断ツール（入力→AI分析→結果表示）
-B: AIチャットBot（自分のIPで答えるQ&A窓口）
+B: AIチャットBot（自分の知識で答えるQ&A窓口）
 C: 自動レポート生成（データ入力→分析レポート出力）
 D: LP＋フォーム（自前の集客ページ）
 
 以下のJSON形式のみで回答してください（他のテキスト不要）：
 {
-  "mvpName": "このIPに最適なMVPの具体的な名称（例：節税余地診断ツール）",
-  "mvpDescription": "MVPの具体的な説明。ユーザーが何を入力すると何が返ってくるか（2文以内）",
+  "mvpName": "このビジネスに最適なプロダクトの具体的な名称（例：節税余地診断ツール）",
+  "mvpDescription": "プロダクトの具体的な説明。何を入力すると何が返ってくるか、または何ができるか（2文以内）",
   "mvpType": "A/B/C/Dのいずれか1文字",
   "traditionalCost": "従来の外注開発費の見積もり（例：約300万円）",
   "traditionalDuration": "従来の開発期間（例：4〜6ヶ月）",
-  "expectedImpact": "このMVPが完成した後の期待されるビジネスインパクト（1文）",
+  "expectedImpact": "このプロダクトが完成した後の期待されるビジネスインパクト（1文）",
   "nextAction": "2時間セッションで最初に作るべきもの（1文）"
 }`
 

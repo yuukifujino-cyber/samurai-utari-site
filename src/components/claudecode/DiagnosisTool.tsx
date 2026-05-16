@@ -81,11 +81,11 @@ export function DiagnosisTool() {
           className="text-2xl md:text-[34px] font-normal leading-[1.7] mb-4 text-white tracking-[0.03em]"
           style={serif}
         >
-          あなたのIPで<br className="hidden md:block" />
-          <span className="text-[#4a7fc8]">作れるMVPを診断する</span>
+          あなたのビジネスで<br className="hidden md:block" />
+          <span className="text-[#4a7fc8]">作れるものを診断する</span>
         </h2>
         <p className="text-[14px] text-white/50 mb-14 leading-[2]" style={serif}>
-          5つの質問に答えるだけ。AIがあなた専用のMVPを提案します。
+          5つの質問に答えるだけ。AIがあなたのビジネスに合ったプロダクトを提案します。
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-10">
@@ -107,12 +107,12 @@ export function DiagnosisTool() {
 
           <div>
             <label htmlFor="field-ip" className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
-              Q2. あなたが持つIP・メソッドを一言で
+              Q2. よく相談されること・得意なことは？
             </label>
             <input
               id="field-ip"
               type="text"
-              placeholder="例：節税チェックリスト50項目、CEOマインドセットプログラム"
+              placeholder="例：節税の相談、メンタルコーチング、マーケティング戦略"
               value={form.ip}
               onChange={(e) => setForm({ ...form, ip: e.target.value })}
               required
@@ -146,11 +146,11 @@ export function DiagnosisTool() {
 
           <div>
             <label htmlFor="field-idea" className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
-              Q4. 「作りたかったができなかった」開発アイデアは？
+              Q4. 業務で手間だと感じること、またはあったらいいと思うものは？
             </label>
             <textarea
               id="field-idea"
-              placeholder="例：自社の財務数値を入れると節税余地が出てくるWebツール"
+              placeholder="例：クライアント管理が毎回手作業になっている、よくある質問への回答をいつも繰り返している"
               value={form.developmentIdea}
               onChange={(e) => setForm({ ...form, developmentIdea: e.target.value })}
               required
@@ -193,7 +193,7 @@ export function DiagnosisTool() {
             className="w-full py-5 bg-[#4a7fc8] text-white text-sm tracking-[0.15em] hover:bg-[#3a6ab8] disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed transition-all"
             style={serif}
           >
-            {loading ? '診断中...' : 'MVPを診断する（無料）'}
+            {loading ? '診断中...' : '診断する（無料）'}
           </button>
         </form>
 

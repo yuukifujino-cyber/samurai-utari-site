@@ -56,8 +56,7 @@ export function DiagnosisResult({ result }: Props) {
 
       <div className="p-5 bg-white/[0.03] border border-white/[0.06] mb-8">
         <p className="text-[13px] text-white/40 leading-[1.8]" style={serif}>
-          セキュリティと公開の判断は、プロダクトごとに顧問と確認しながら進めます。
-          これが顧問の最初の仕事です。
+          セキュリティと公開範囲の判断は、セッションの中で一緒に確認しながら進めます。
         </p>
       </div>
 

@@ -38,12 +38,19 @@ export function CostComparison() {
         <ScrollFadeIn>
           <SectionLabel ja="なぜ今なのか" en="Why Now" />
           <h2
-            className="text-2xl md:text-[34px] font-normal leading-[1.8] mb-10 text-white tracking-[0.03em] max-w-[760px]"
+            className="text-2xl md:text-[34px] font-normal leading-[1.8] mb-8 text-white tracking-[0.03em] max-w-[760px]"
             style={serif}
           >
-            コーディング工数がゼロになった。<br className="hidden md:block" />
-            <span className="text-[#4a7fc8]">開発コストの構造が、根本から変わった。</span>
+            なぜ、諦めていたアイデアが<br className="hidden md:block" />
+            <span className="text-[#4a7fc8]">今なら作れるのか。</span>
           </h2>
+          <p className="text-[15px] text-white/55 leading-[2.2] mb-10 max-w-[680px]" style={serif}>
+            これまで、何かを「作りたい」と思ったとき、エンジニアへの依頼が必要だった。
+            費用は数百万円、期間は数ヶ月。そのハードルを超えるアイデアだけが形になり、
+            大半は「いつか」のまま消えていった。<br />
+            AIがその工程を担うようになった今、その壁がなくなった。
+            エンジニアなしで、自分のビジネスに必要なものを自分で試せる時代になった。
+          </p>
         </ScrollFadeIn>
 
         <ScrollFadeIn>
