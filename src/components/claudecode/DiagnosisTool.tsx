@@ -53,7 +53,10 @@ export function DiagnosisTool() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      if (!res.ok) throw new Error('診断に失敗しました')
+      if (!res.ok) {
+        const errData = await res.json().catch(() => null)
+        throw new Error(errData?.error ?? '診断に失敗しました')
+      }
       const data: ResultType = await res.json()
       setResult(data)
     } catch {
@@ -87,10 +90,11 @@ export function DiagnosisTool() {
 
         <form onSubmit={handleSubmit} className="space-y-10">
           <div>
-            <label className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
+            <label htmlFor="field-job" className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
               Q1. あなたの専門領域・職業は？
             </label>
             <input
+              id="field-job"
               type="text"
               placeholder="例：税理士YouTuber、ビジネスコーチ、マーケコンサルタント"
               value={form.job}
@@ -102,10 +106,11 @@ export function DiagnosisTool() {
           </div>
 
           <div>
-            <label className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
+            <label htmlFor="field-ip" className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
               Q2. あなたが持つIP・メソッドを一言で
             </label>
             <input
+              id="field-ip"
               type="text"
               placeholder="例：節税チェックリスト50項目、CEOマインドセットプログラム"
               value={form.ip}
@@ -140,10 +145,11 @@ export function DiagnosisTool() {
           </div>
 
           <div>
-            <label className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
+            <label htmlFor="field-idea" className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
               Q4. 「作りたかったができなかった」開発アイデアは？
             </label>
             <textarea
+              id="field-idea"
               placeholder="例：自社の財務数値を入れると節税余地が出てくるWebツール"
               value={form.developmentIdea}
               onChange={(e) => setForm({ ...form, developmentIdea: e.target.value })}
@@ -178,7 +184,7 @@ export function DiagnosisTool() {
           </div>
 
           {error && (
-            <p className="text-[13px] text-red-400/70" style={serif}>{error}</p>
+            <p role="alert" className="text-[13px] text-red-400/70" style={serif}>{error}</p>
           )}
 
           <button
