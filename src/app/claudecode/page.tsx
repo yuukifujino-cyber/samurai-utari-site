@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ClaudecodeHero } from '@/components/claudecode/ClaudecodeHero'
+import { CostComparison } from '@/components/claudecode/CostComparison'
 
 export const metadata: Metadata = {
   title: '開発するかどうかの判断基準が、変わった。| 株式会社サムライウタリ',
@@ -25,8 +26,9 @@ export default function ClaudecodePage() {
       </div>
 
       <ClaudecodeHero />
+      <CostComparison />
 
-      {/* 後続セクション（Task 4, 5, 6 で追加） */}
+      {/* 後続セクション（Task 5, 6 で追加） */}
     </main>
   )
 }
