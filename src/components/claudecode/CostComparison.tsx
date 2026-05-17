@@ -18,7 +18,7 @@ const scenarios = [
     pain: 'YouTube収益、コーチング料、セミナー収入——複数の収益源を一画面で把握できていない。Freeeで請求管理はできても、「今月の本当の手取り」がリアルタイムで見えない。',
     options: [
       {
-        label: 'フルスクラッチ開発',
+        label: 'エンジニアに外注',
         cost: '200〜400万円',
         duration: '3〜5ヶ月',
         fit: '自社専用',
@@ -26,7 +26,7 @@ const scenarios = [
         highlight: false,
       },
       {
-        label: 'SaaS（Freee等）',
+        label: '既製ツール（Freee等）',
         cost: '月3,000〜1万円',
         duration: '即日',
         fit: '汎用品で妥協',
@@ -48,7 +48,7 @@ const scenarios = [
     pain: 'インスタのインサイトをスプレッドシートに手作業でまとめて分析。SaaSは高いうえに、自社のKPIに合った指標が出せない。',
     options: [
       {
-        label: 'フルスクラッチ開発',
+        label: 'エンジニアに外注',
         cost: '150〜300万円',
         duration: '2〜4ヶ月',
         fit: '自社専用',
@@ -56,10 +56,10 @@ const scenarios = [
         highlight: false,
       },
       {
-        label: 'SaaS（Sprout Social等）',
+        label: '既製ツール（Sprout Social等）',
         cost: '月3〜5万円',
         duration: '即日',
-        fit: '自社KPIに合わない',
+        fit: '欲しいデータが出せない',
         fitGood: false,
         highlight: false,
       },
@@ -78,7 +78,7 @@ const scenarios = [
     pain: 'Notionやスプシでクライアントのフェーズを管理中。誰がどの状態かを把握するたびに時間がかかる。HubSpotやSalesforceは大企業向けで複雑すぎる。',
     options: [
       {
-        label: 'フルスクラッチ開発',
+        label: 'エンジニアに外注',
         cost: '200〜500万円',
         duration: '3〜6ヶ月',
         fit: '自社専用',
@@ -86,10 +86,10 @@ const scenarios = [
         highlight: false,
       },
       {
-        label: 'SaaS（HubSpot等）',
+        label: '既製ツール（HubSpot等）',
         cost: '月1〜5万円',
         duration: '1週間',
-        fit: '大企業向けで複雑',
+        fit: '機能が多すぎて使いこなせない',
         fitGood: false,
         highlight: false,
       },
