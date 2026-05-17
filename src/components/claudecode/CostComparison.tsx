@@ -35,8 +35,8 @@ const scenarios = [
       },
       {
         label: 'AI自社ツール',
-        cost: '月2万円',
-        duration: '2時間',
+        cost: '月15,000円〜',
+        duration: '2時間/本',
         fit: '自社専用',
         fitGood: true,
         highlight: true,
@@ -65,8 +65,8 @@ const scenarios = [
       },
       {
         label: 'AI自社ツール',
-        cost: '月2万円',
-        duration: '2時間',
+        cost: '月15,000円〜',
+        duration: '2時間/本',
         fit: '自社専用',
         fitGood: true,
         highlight: true,
@@ -95,8 +95,8 @@ const scenarios = [
       },
       {
         label: 'AI自社ツール',
-        cost: '月2万円',
-        duration: '2時間',
+        cost: '月15,000円〜',
+        duration: '2時間/本',
         fit: '自社専用',
         fitGood: true,
         highlight: true,

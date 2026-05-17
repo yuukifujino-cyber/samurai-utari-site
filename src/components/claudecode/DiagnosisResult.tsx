@@ -38,8 +38,8 @@ export function DiagnosisResult({ result }: Props) {
         </div>
         <div className="p-5 bg-[#4a7fc8]/10 border border-[#4a7fc8]/40">
           <p className="text-[11px] tracking-[0.2em] text-[#4a7fc8]/60 mb-3 uppercase" style={inter}>ClaudeCode</p>
-          <p className="text-[22px] text-white font-light mb-1" style={inter}>月2万円</p>
-          <p className="text-[13px] text-[#4a7fc8]/70" style={serif}>2時間</p>
+          <p className="text-[22px] text-white font-light mb-1" style={inter}>月15,000円〜</p>
+          <p className="text-[13px] text-[#4a7fc8]/70" style={serif}>2時間/本</p>
         </div>
       </div>
 
