@@ -17,7 +17,7 @@ const REVENUE_MODELS = [
 
 const SCALE_BARRIERS = [
   '時間が足りない',
-  '開発コストが高い',
+  'ちょうどいいツールがない',
   '技術がわからない',
   '人材がいない',
 ]
@@ -76,16 +76,16 @@ export function DiagnosisTool() {
   return (
     <section id="diagnosis" className="px-6 md:px-[60px] py-[120px] md:py-[160px]">
       <div className="max-w-[720px] mx-auto">
-        <SectionLabel ja="AI診断" en="MVP Diagnosis" />
+        <SectionLabel ja="自社ツール診断" en="Tool Diagnosis" />
         <h2
           className="text-2xl md:text-[34px] font-normal leading-[1.7] mb-4 text-white tracking-[0.03em]"
           style={serif}
         >
-          あなたのビジネスで<br className="hidden md:block" />
-          <span className="text-[#4a7fc8]">作れるものを診断する</span>
+          あなたのビジネスに<br className="hidden md:block" />
+          <span className="text-[#4a7fc8]">持てるツールを、診断する</span>
         </h2>
         <p className="text-[14px] text-white/50 mb-14 leading-[2]" style={serif}>
-          5つの質問に答えるだけ。AIがあなたのビジネスに合ったプロダクトを提案します。
+          5つの質問に答えるだけ。あなたのビジネスに合った自社ツールを提案します。
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-10">
@@ -162,7 +162,7 @@ export function DiagnosisTool() {
 
           <div>
             <label className="block text-[13px] tracking-[0.2em] text-white/50 mb-4 uppercase" style={inter}>
-              Q5. 今最もスケールを妨げている壁は？
+              Q5. 今のビジネスで一番もどかしいことは？
             </label>
             <div className="grid grid-cols-2 gap-2">
               {SCALE_BARRIERS.map((barrier) => (

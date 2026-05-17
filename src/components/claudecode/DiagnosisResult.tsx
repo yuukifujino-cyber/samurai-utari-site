@@ -18,7 +18,7 @@ export function DiagnosisResult({ result }: Props) {
   return (
     <div className="bg-white/[0.03] border border-[#4a7fc8]/40 p-8 mt-10">
       <p className="text-[11px] tracking-[0.3em] text-[#4a7fc8]/60 mb-4 uppercase" style={inter}>
-        あなたのMVP診断結果
+        あなたの自社ツール診断結果
       </p>
       <h3 className="text-[22px] md:text-[28px] font-normal text-white mb-2 leading-[1.5]" style={serif}>
         {result.mvpName}
@@ -32,7 +32,7 @@ export function DiagnosisResult({ result }: Props) {
 
       <div className="grid grid-cols-2 gap-4 mb-8">
         <div className="p-5 bg-white/[0.03] border border-white/[0.06]">
-          <p className="text-[11px] tracking-[0.2em] text-white/30 mb-3 uppercase" style={inter}>従来の外注</p>
+          <p className="text-[11px] tracking-[0.2em] text-white/30 mb-3 uppercase" style={inter}>SaaS / 外注</p>
           <p className="text-[22px] text-white/50 font-light mb-1" style={inter}>{result.traditionalCost}</p>
           <p className="text-[13px] text-white/30" style={serif}>{result.traditionalDuration}</p>
         </div>
@@ -45,7 +45,7 @@ export function DiagnosisResult({ result }: Props) {
 
       <div className="border-t border-white/[0.06] pt-6 space-y-5 mb-8">
         <div>
-          <p className="text-[11px] tracking-[0.2em] text-white/30 mb-2 uppercase" style={inter}>完成後のインパクト</p>
+          <p className="text-[11px] tracking-[0.2em] text-white/30 mb-2 uppercase" style={inter}>手元に届いた後のインパクト</p>
           <p className="text-[14px] text-white/70 leading-[1.8]" style={serif}>{result.expectedImpact}</p>
         </div>
         <div>
@@ -65,7 +65,7 @@ export function DiagnosisResult({ result }: Props) {
         className="block w-full text-center px-8 py-4 bg-[#4a7fc8] text-white text-sm tracking-[0.15em] hover:bg-[#3a6ab8] transition-all"
         style={serif}
       >
-        この{result.mvpName}を作るセッションに申し込む
+        {result.mvpName}を2時間で手に入れる
       </a>
     </div>
   )

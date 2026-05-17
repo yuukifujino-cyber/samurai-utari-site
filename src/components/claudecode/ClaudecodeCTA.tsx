@@ -19,14 +19,14 @@ export function ClaudecodeCTA() {
               className="text-2xl md:text-[38px] font-normal tracking-[0.05em] mb-6 text-white leading-[1.7]"
               style={serif}
             >
-              診断で出てきたMVPを、<br />
-              一緒に作りませんか。
+              診断で見えた「それ」を、<br />
+              2時間で自分のものにする。
             </h2>
             <p
               className="text-sm md:text-[15px] text-white/60 leading-[2.2] max-w-[520px] mx-auto"
               style={serif}
             >
-              2時間のセッションで、診断結果を実際に動くプロダクトにします。
+              SaaSを買うより早く、外注より安く、あなた専用のツールが手元に届きます。
               まずは話だけでも構いません。
             </p>
           </div>

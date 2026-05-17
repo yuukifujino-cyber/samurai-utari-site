@@ -41,15 +41,17 @@ export function CostComparison() {
             className="text-2xl md:text-[34px] font-normal leading-[1.8] mb-8 text-white tracking-[0.03em] max-w-[760px]"
             style={serif}
           >
-            なぜ、諦めていたアイデアが<br className="hidden md:block" />
-            <span className="text-[#4a7fc8]">今なら作れるのか。</span>
+            外注するか、SaaSで妥協するか。<br className="hidden md:block" />
+            <span className="text-[#4a7fc8]">その二択が、消えた。</span>
           </h2>
           <p className="text-[15px] text-white/55 leading-[2.2] mb-10 max-w-[680px]" style={serif}>
-            これまで、何かを「作りたい」と思ったとき、エンジニアへの依頼が必要だった。
-            費用は数百万円、期間は数ヶ月。そのハードルを超えるアイデアだけが形になり、
-            大半は「いつか」のまま消えていった。<br />
-            AIがその工程を担うようになった今、その壁がなくなった。
-            エンジニアなしで、自分のビジネスに必要なものを自分で試せる時代になった。
+            ビジネスに必要なツールを手に入れる方法は、これまで2つしかなかった。
+            エンジニアに外注して数百万円かける。または、SaaSを月額で買い続け、機能の過不足に妥協する。
+            <br />
+            どちらも選べなかった人は、ツールなしで戦ってきた。
+            <br /><br />
+            AIがコードを書く今、3つ目の選択肢が生まれた。
+            <span className="text-white"> 自分専用のものを、自分で、2時間で作る。</span>
           </p>
         </ScrollFadeIn>
 
@@ -57,7 +59,7 @@ export function CostComparison() {
           <div className="mb-6">
             <div className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-3 text-[11px] text-white/30 text-center px-4" style={inter}>
               <div className="text-left">開発内容</div>
-              <div>従来の外注</div>
+              <div>SaaS / 外注</div>
               <div>ClaudeCode</div>
             </div>
             <div className="space-y-2">
@@ -80,8 +82,8 @@ export function CostComparison() {
 
         <ScrollFadeIn>
           <p className="text-center text-[16px] md:text-[18px] text-white/50 mt-12 leading-[2]" style={serif}>
-            300万円が惜しかったんじゃない。
-            <span className="text-white"> 6ヶ月が、惜しかった。</span>
+            妥協してきたのは、
+            <span className="text-white"> 選択肢がなかっただけだ。</span>
           </p>
         </ScrollFadeIn>
       </div>
