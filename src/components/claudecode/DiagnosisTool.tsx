@@ -19,7 +19,7 @@ const SCALE_BARRIERS = [
   '時間が足りない',
   'ちょうどいいツールがない',
   '技術がわからない',
-  '人材がいない',
+  '繰り返しの作業が多すぎる',
 ]
 
 function SectionLabel({ ja, en }: { ja: string; en: string }) {

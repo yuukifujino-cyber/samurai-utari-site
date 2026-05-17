@@ -54,12 +54,6 @@ export function DiagnosisResult({ result }: Props) {
         </div>
       </div>
 
-      <div className="p-5 bg-white/[0.03] border border-white/[0.06] mb-8">
-        <p className="text-[13px] text-white/40 leading-[1.8]" style={serif}>
-          セキュリティと公開範囲の判断は、セッションの中で一緒に確認しながら進めます。
-        </p>
-      </div>
-
       <a
         href="#cta"
         className="block w-full text-center px-8 py-4 bg-[#4a7fc8] text-white text-sm tracking-[0.15em] hover:bg-[#3a6ab8] transition-all"
@@ -67,6 +61,10 @@ export function DiagnosisResult({ result }: Props) {
       >
         {result.mvpName}を2時間で手に入れる
       </a>
+
+      <p className="text-[12px] text-white/25 mt-4 text-center leading-[1.8]" style={serif}>
+        セキュリティと公開範囲の判断は、セッションの中で一緒に確認しながら進めます。
+      </p>
     </div>
   )
 }
