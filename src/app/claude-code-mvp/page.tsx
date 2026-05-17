@@ -6,9 +6,9 @@ import { DiagnosisTool } from '@/components/claudecode/DiagnosisTool'
 import { ClaudecodeCTA } from '@/components/claudecode/ClaudecodeCTA'
 
 export const metadata: Metadata = {
-  title: '開発するかどうかの判断基準が、変わった。| 株式会社サムライウタリ',
+  title: '自分専用のツールを、持てる時代になった。| 株式会社サムライウタリ',
   description:
-    'あなたのIPで作れるMVPを2時間で。ClaudeCodeで、コーディング工数がゼロになった時代の開発体験。年収3000万クラスの個人事業主・発信者向けプログラム。',
+    '外注するか、SaaSで妥協するか。その二択が消えた。ClaudeCodeで、あなた専用のツールを2時間で作る。個人事業主・発信者向け自社ツール制作プログラム。',
 }
 
 const inter = { fontFamily: '"Inter", sans-serif' }
