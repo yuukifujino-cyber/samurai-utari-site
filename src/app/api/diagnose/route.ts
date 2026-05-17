@@ -109,7 +109,11 @@ D: LP＋フォーム（自前の集客ページ）
 
   let result: DiagnosisResult
   try {
-    const parsed = JSON.parse(content.text)
+    let jsonText = content.text.trim()
+    if (jsonText.startsWith('```')) {
+      jsonText = jsonText.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '')
+    }
+    const parsed = JSON.parse(jsonText)
     if (!isDiagnosisResult(parsed)) {
       throw new Error('Invalid result structure')
     }
