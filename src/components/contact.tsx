@@ -28,9 +28,9 @@ export function Contact() {
           className="text-sm md:text-[15px] text-white/60 mb-14 leading-[2]"
           style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
         >
-          採用、育成、AI、組織。
+          経営、新規事業、人事、組織。
           <br className="md:hidden" />
-          人的資本経営の悩みを丸ごとご相談ください。
+          領域を問わず、丸ごとご相談ください。
         </p>
         <a
           href="mailto:info@samurai-utari.co.jp"

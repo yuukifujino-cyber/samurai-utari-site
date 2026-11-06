@@ -21,7 +21,7 @@ const notoSerifJP = Noto_Serif_JP({
 export const metadata: Metadata = {
   title: "株式会社サムライウタリ | SAMURAI UTARI Inc.",
   description:
-    "夢なき者に理想を。地方に、革命を。AI研修事業・キャリア教育事業を展開する株式会社サムライウタリのコーポレートサイト。",
+    "夢なき者に理想を。地方に、革命を。コンサルティング事業・人材教育事業を展開する株式会社サムライウタリのコーポレートサイト。",
   openGraph: {
     title: "株式会社サムライウタリ | SAMURAI UTARI Inc.",
     description: "夢なき者に、理想を。地方に、革命を。",
