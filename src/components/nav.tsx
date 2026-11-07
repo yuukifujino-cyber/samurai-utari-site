@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const isHome = usePathname() === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -14,24 +17,25 @@ export function Nav() {
   }, []);
 
   const links = [
-    { href: "#philosophy", jp: "理念", en: "Philosophy" },
-    { href: "#mission", jp: "使命", en: "Mission" },
-    { href: "#service", jp: "事業", en: "Service" },
-    { href: "#team", jp: "UTARI", en: "Team" },
-    { href: "#contact", jp: "連絡", en: "Contact" },
+    { href: "/#philosophy", jp: "理念", en: "Philosophy" },
+    { href: "/#mission", jp: "使命", en: "Mission" },
+    { href: "/#service", jp: "事業", en: "Service" },
+    { href: "/consulting", jp: "コンサル", en: "Consulting" },
+    { href: "/#team", jp: "UTARI", en: "Team" },
+    { href: "/#contact", jp: "連絡", en: "Contact" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-[60px] py-4 transition-all duration-300 ${
-        scrolled
+        scrolled || !isHome
           ? "bg-[#f6f2e7]/95 backdrop-blur-xl border-b border-[#0a2044]/[0.08]"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-[1300px] mx-auto flex items-center justify-between">
         {/* ロゴ：シンボル + 社名 */}
-        <a href="#" className="flex items-center gap-3 md:gap-4">
+        <Link href="/" className="flex items-center gap-3 md:gap-4">
           <Image
             src="/logo/primary/logo-primary.svg"
             alt="SAMURAI UTARI"
@@ -51,10 +55,10 @@ export function Nav() {
               Samurai Utari Inc.
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-10">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {links.map((link) => (
             <a
               key={link.href}
@@ -73,7 +77,7 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/consulting#contact"
             className="px-5 py-2.5 text-[13px] tracking-[0.15em] bg-[#123563] text-white hover:bg-[#1f4a86] transition-colors"
             style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
           >
@@ -83,8 +87,8 @@ export function Nav() {
 
         {/* Mobile：相談ボタン */}
         <a
-          href="#contact"
-          className="md:hidden ml-auto mr-3 px-3 py-2 text-[12px] tracking-[0.1em] bg-[#123563] text-white whitespace-nowrap"
+          href="/consulting#contact"
+          className="lg:hidden ml-auto mr-3 px-3 py-2 text-[12px] tracking-[0.1em] bg-[#123563] text-white whitespace-nowrap"
           style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
         >
           相談する
@@ -92,7 +96,7 @@ export function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニュー"
         >
@@ -114,7 +118,7 @@ export function Nav() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden mt-4 pb-4 flex flex-col gap-5 border-t border-[#0a2044]/10 pt-5">
+        <div className="lg:hidden mt-4 pb-4 flex flex-col gap-5 border-t border-[#0a2044]/10 pt-5">
           {links.map((link) => (
             <a
               key={link.href}
