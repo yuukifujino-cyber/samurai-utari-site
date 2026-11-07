@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RippleField } from "./ripple-field";
 
 export function Hero() {
   return (
@@ -11,17 +12,19 @@ export function Hero() {
       </div>
 
       {/* 家紋（剣梅紋）大きく透かし */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="relative w-[80vmin] h-[80vmin] max-w-[720px] max-h-[720px] opacity-[0.12] hero-kamon-fade">
-          <Image
-            src="/logo/primary/logo-primary.svg"
-            alt=""
-            fill
-            className="object-contain"
-            priority
-          />
+      <RippleField tone="light" logoSrc="/logo/primary/logo-primary.svg">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-[80vmin] h-[80vmin] max-w-[720px] max-h-[720px] opacity-[0.12] hero-kamon-fade">
+            <Image
+              src="/logo/primary/logo-primary.svg"
+              alt=""
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
-      </div>
+      </RippleField>
 
       {/* Content：タイポグラフィ主役 */}
       <div

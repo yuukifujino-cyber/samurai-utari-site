@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { RippleField } from "./ripple-field";
 import { ScrollFadeIn } from "./scroll-fade-in";
 
 export function Philosophy() {
@@ -7,22 +8,14 @@ export function Philosophy() {
       id="philosophy"
       className="relative py-[160px] md:py-[240px] px-6 md:px-[60px] bg-[#123563] overflow-hidden"
     >
-      {/* テック感：グリッドライン */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.12]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      {/* 大きな家紋を透かし */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="relative w-[80vmin] h-[80vmin] max-w-[720px] max-h-[720px] text-white opacity-[0.05]">
-          <Image src="/logo/sub/logo-sub.svg" alt="" fill className="object-contain" />
+      {/* 鏡花水月：夜の水面に映る家紋と波紋 */}
+      <RippleField tone="dark" logoSrc="/logo/primary/logo-primary.svg">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-[80vmin] h-[80vmin] max-w-[720px] max-h-[720px] text-white opacity-[0.05]">
+            <Image src="/logo/sub/logo-sub.svg" alt="" fill className="object-contain" />
+          </div>
         </div>
-      </div>
+      </RippleField>
 
       <div className="relative max-w-[980px] mx-auto">
         <ScrollFadeIn>
@@ -36,7 +29,7 @@ export function Philosophy() {
 
         <ScrollFadeIn>
           <h2
-            className="text-center text-5xl md:text-[96px] font-normal leading-[1.5] md:leading-[1.4] tracking-[0.15em] md:tracking-[0.25em] text-white mb-20 md:mb-28"
+            className="text-center text-[38px] sm:text-5xl md:text-[72px] lg:text-[96px] font-normal leading-[1.5] md:leading-[1.4] tracking-[0.15em] md:tracking-[0.25em] text-white mb-20 md:mb-28"
             style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
           >
             夢なき者に、
