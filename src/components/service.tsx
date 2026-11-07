@@ -70,7 +70,7 @@ const clientValues: IconText[] = [
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-5 text-[12px] tracking-[0.3em] text-[#4a7fc8]" style={serifFont}>
+    <p className="mb-5 text-[12px] tracking-[0.3em] text-[#e8dfc9]" style={serifFont}>
       {children}
     </p>
   );
@@ -81,7 +81,7 @@ function IconCircle({ icon: Icon, size = "md" }: { icon: LucideIcon; size?: "md"
   const iconSize = size === "lg" ? 28 : 22;
   return (
     <span
-      className={`inline-flex items-center justify-center ${box} rounded-full border border-[#4a7fc8]/50 bg-[#4a7fc8]/10 text-[#9dbdeb] shrink-0`}
+      className={`inline-flex items-center justify-center ${box} rounded-full border border-[#e8dfc9]/50 bg-[#e8dfc9]/10 text-[#e8dfc9] shrink-0`}
     >
       <Icon size={iconSize} strokeWidth={1.5} aria-hidden="true" />
     </span>
@@ -91,7 +91,7 @@ function IconCircle({ icon: Icon, size = "md" }: { icon: LucideIcon; size?: "md"
 /** 横並びのときは右、縦並びのときは下を指す矢印 */
 function FlowArrow({ className = "" }: { className?: string }) {
   return (
-    <span className={`text-[#4a7fc8] ${className}`} aria-hidden="true">
+    <span className={`text-[#e8dfc9] ${className}`} aria-hidden="true">
       <ArrowRight size={20} className="hidden md:block" />
       <ArrowDown size={20} className="md:hidden" />
     </span>
@@ -112,11 +112,11 @@ function CardHeader({
   return (
     <>
       <div className="flex items-center gap-4 mb-5 flex-wrap">
-        <span className="text-[11px] tracking-[0.3em] text-[#4a7fc8]/70" style={interFont}>
+        <span className="text-[11px] tracking-[0.3em] text-[#e8dfc9]/70" style={interFont}>
           {index}
         </span>
         <span
-          className="inline-block px-3 py-1 text-[10px] tracking-[0.15em] uppercase border border-[#4a7fc8]/40 text-[#4a7fc8] whitespace-nowrap"
+          className="inline-block px-3 py-1 text-[10px] tracking-[0.15em] uppercase border border-[#e8dfc9]/40 text-[#e8dfc9] whitespace-nowrap"
           style={interFont}
         >
           / {tag}
@@ -155,17 +155,17 @@ function BusinessMap() {
       </div>
 
       {/* 現場の経験が教育へ戻る、循環の矢印 */}
-      <div className="hidden md:block relative h-14 mt-1 ml-[14%] mr-[50%] border-x border-b border-dashed border-[#4a7fc8]/60">
-        <ArrowUp size={18} className="absolute -top-1 -left-[10px] text-[#4a7fc8]" aria-hidden="true" />
+      <div className="hidden md:block relative h-14 mt-1 ml-[14%] mr-[50%] border-x border-b border-dashed border-[#e8dfc9]/60">
+        <ArrowUp size={18} className="absolute -top-1 -left-[10px] text-[#e8dfc9]" aria-hidden="true" />
         <p
-          className="absolute left-1/2 -translate-x-1/2 bottom-[-11px] px-3 bg-[#0d1117] text-[13px] text-[#9dbdeb] whitespace-nowrap m-0"
+          className="absolute left-1/2 -translate-x-1/2 bottom-[-11px] px-3 bg-[#123563] text-[13px] text-[#e8dfc9] whitespace-nowrap m-0"
           style={serifFont}
         >
           現場の経験が、次の学びへ
         </p>
       </div>
       <p
-        className="md:hidden flex items-center justify-center gap-2 mt-4 text-[13px] text-[#9dbdeb]"
+        className="md:hidden flex items-center justify-center gap-2 mt-4 text-[13px] text-[#e8dfc9]"
         style={serifFont}
       >
         <ArrowUp size={16} aria-hidden="true" />
@@ -237,18 +237,18 @@ function ConsultingCard() {
                 key={area.name}
                 className={`relative flex flex-col items-center justify-center gap-3 p-2 md:p-5 min-h-[110px] md:min-h-[120px] text-center border ${
                   area.studentStrength
-                    ? "border-[#4a7fc8] bg-[#4a7fc8]/15"
-                    : "border-white/[0.12] bg-[#10161f]"
+                    ? "border-[#e8dfc9] bg-[#e8dfc9]/15"
+                    : "border-white/[0.12] bg-white/[0.04]"
                 }`}
               >
                 {area.studentStrength && (
                   <Star
                     size={14}
-                    className="absolute top-2.5 right-2.5 text-[#9dbdeb] fill-[#9dbdeb]"
+                    className="absolute top-2.5 right-2.5 text-[#e8dfc9] fill-[#e8dfc9]"
                     aria-hidden="true"
                   />
                 )}
-                <Icon size={26} strokeWidth={1.5} className="text-[#9dbdeb]" aria-hidden="true" />
+                <Icon size={26} strokeWidth={1.5} className="text-[#e8dfc9]" aria-hidden="true" />
                 <p className="text-[13px] md:text-[15px] font-medium text-white leading-[1.5] m-0" style={serifFont}>
                   {area.name}
                 </p>
@@ -257,12 +257,12 @@ function ConsultingCard() {
           })}
         </ul>
         <p className="flex items-center gap-2 mt-3 text-[13px] text-white/70" style={serifFont}>
-          <Star size={13} className="text-[#9dbdeb] fill-[#9dbdeb] shrink-0" aria-hidden="true" />
+          <Star size={13} className="text-[#e8dfc9] fill-[#e8dfc9] shrink-0" aria-hidden="true" />
           北大生チームが特に得意とする領域
         </p>
       </div>
 
-      <div className="mt-10 p-6 md:p-8 border-l-2 border-[#4a7fc8] bg-[#4a7fc8]/[0.08]">
+      <div className="mt-10 p-6 md:p-8 border-l-2 border-[#e8dfc9] bg-[#e8dfc9]/[0.08]">
         <p className="text-[17px] md:text-[18px] font-medium text-white leading-[1.6] mb-6" style={serifFont}>
           ここにないテーマも、
           <br className="md:hidden" />
@@ -297,7 +297,7 @@ function ConsultingCard() {
               {[0, 1, 2].map((i) => (
                 <span
                   key={i}
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#4a7fc8]/60 bg-[#14233a] text-[#9dbdeb]"
+                  className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#e8dfc9]/60 bg-[#123563] text-[#e8dfc9]"
                 >
                   <GraduationCap size={20} strokeWidth={1.5} />
                 </span>
@@ -323,7 +323,7 @@ function ConsultingCard() {
                 <IconCircle icon={step.icon} />
                 <div>
                   <p
-                    className="text-[11px] tracking-[0.2em] text-[#4a7fc8] mb-1"
+                    className="text-[11px] tracking-[0.2em] text-[#e8dfc9] mb-1"
                     style={interFont}
                   >
                     {`STEP ${i + 1}`}
@@ -347,7 +347,7 @@ function ConsultingCard() {
       <div className="mt-10">
         <a
           href="#contact"
-          className="inline-block text-[13px] tracking-[0.2em] text-white bg-[#123563] border border-[#4a7fc8]/60 px-6 py-3 hover:bg-[#1f4a86] transition-colors"
+          className="inline-block text-[13px] tracking-[0.2em] text-[#123563] bg-[#e8dfc9] px-6 py-3 hover:bg-white transition-colors"
           style={serifFont}
         >
           まずは相談する →
@@ -393,23 +393,8 @@ export function Service() {
   return (
     <section
       id="service"
-      className="relative py-[160px] md:py-[220px] px-6 md:px-[60px] bg-[#0d1117] overflow-hidden"
+      className="relative py-[160px] md:py-[220px] px-6 md:px-[60px] bg-[#123563] overflow-hidden"
     >
-      {/* テック感：グリッドライン */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.25]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(74,127,200,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(74,127,200,0.08) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
-      {/* 淡いオーブ */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[20%] left-[15%] w-[500px] h-[400px] bg-[radial-gradient(ellipse,rgba(74,127,200,0.15),transparent)] rounded-full" />
-        <div className="absolute bottom-[15%] right-[15%] w-[500px] h-[400px] bg-[radial-gradient(ellipse,rgba(18,53,99,0.25),transparent)] rounded-full" />
-      </div>
-
       <div className="relative max-w-[1100px] mx-auto">
         <ScrollFadeIn>
           <p className="text-[13px] tracking-[0.4em] text-white/45 mb-12 md:mb-16">
@@ -427,7 +412,7 @@ export function Service() {
           >
             若者を育て、
             <br />
-            地方の経営を<span className="text-[#4a7fc8]">前へ</span>。
+            地方の経営を<span className="text-[#e8dfc9]">前へ</span>。
           </h2>
         </ScrollFadeIn>
 

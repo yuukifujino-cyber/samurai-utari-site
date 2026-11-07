@@ -54,7 +54,7 @@ export function Nav() {
         </a>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex gap-8 lg:gap-10">
+        <div className="hidden md:flex items-center gap-8 lg:gap-10">
           {links.map((link) => (
             <a
               key={link.href}
@@ -72,7 +72,23 @@ export function Nav() {
               </span>
             </a>
           ))}
+          <a
+            href="#contact"
+            className="px-5 py-2.5 text-[13px] tracking-[0.15em] bg-[#123563] text-white hover:bg-[#1f4a86] transition-colors"
+            style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
+          >
+            相談する
+          </a>
         </div>
+
+        {/* Mobile：相談ボタン */}
+        <a
+          href="#contact"
+          className="md:hidden ml-auto mr-3 px-3 py-2 text-[12px] tracking-[0.1em] bg-[#123563] text-white whitespace-nowrap"
+          style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
+        >
+          相談する
+        </a>
 
         {/* Mobile hamburger */}
         <button

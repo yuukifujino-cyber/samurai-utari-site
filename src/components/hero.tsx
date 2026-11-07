@@ -30,7 +30,7 @@ export function Hero() {
         <p className="text-[10px] md:text-[11px] tracking-[0.5em] uppercase text-[#0a2044]/40 mb-10 hero-fade-1">
           Philosophy
         </p>
-        <h1 className="text-5xl md:text-[104px] font-normal tracking-[0.15em] md:tracking-[0.22em] text-[#0a2044] leading-[1.45] hero-fade-2">
+        <h1 className="text-[38px] sm:text-5xl md:text-[104px] font-normal tracking-[0.15em] md:tracking-[0.22em] text-[#0a2044] leading-[1.45] hero-fade-2">
           夢なき者に、
           <br />
           <span className="text-[#8b2500]">理想を。</span>
@@ -40,6 +40,24 @@ export function Hero() {
           <span className="text-[#8b2500] mx-1">革命</span>
           を。
         </p>
+        <dl className="mt-8 md:mt-10 space-y-4 md:space-y-3 hero-fade-3">
+          <div className="md:flex md:items-baseline md:justify-center md:gap-4">
+            <dt className="text-[12px] tracking-[0.15em] text-[#8b2500] mb-1 md:mb-0">企業の方へ</dt>
+            <dd className="m-0 text-[14px] md:text-[17px] tracking-[0.05em] leading-[1.7] text-[#0a2044]">
+              地方国公立大の学生チームが動く、
+              <br className="sm:hidden" />
+              経営支援会社
+            </dd>
+          </div>
+          <div className="md:flex md:items-baseline md:justify-center md:gap-4">
+            <dt className="text-[12px] tracking-[0.15em] text-[#8b2500] mb-1 md:mb-0">学生の方へ</dt>
+            <dd className="m-0 text-[14px] md:text-[17px] tracking-[0.05em] leading-[1.7] text-[#0a2044]">
+              地方国公立大生に特化した、
+              <br className="sm:hidden" />
+              ビジネススクール
+            </dd>
+          </div>
+        </dl>
       </div>
 
       {/* 下部スクロールインジケータ */}

@@ -1,4 +1,7 @@
+import { FormrunEmbed } from "./formrun-embed";
 import { ScrollFadeIn } from "./scroll-fade-in";
+
+const FORM_ID = "@samurai-utari-2Ti4N0pylJFYS0HR0qyi";
 
 export function Contact() {
   return (
@@ -32,13 +35,20 @@ export function Contact() {
           <br className="md:hidden" />
           領域を問わず、丸ごとご相談ください。
         </p>
-        <a
-          href="mailto:info@samurai-utari.co.jp"
-          className="inline-block px-12 py-4 text-sm tracking-[0.2em] bg-white text-[#123563] hover:bg-[#f5efe0] transition-all"
+      </ScrollFadeIn>
+      <ScrollFadeIn>
+        <div className="max-w-[720px] mx-auto bg-white rounded-sm p-2 text-left">
+          <FormrunEmbed formId={FORM_ID} />
+        </div>
+        <p
+          className="mt-8 text-[13px] text-white/70"
           style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
         >
-          メールで問い合わせる
-        </a>
+          メールでのご連絡は{" "}
+          <a href="mailto:info@samurai-utari.co.jp" className="underline underline-offset-4 hover:text-white">
+            info@samurai-utari.co.jp
+          </a>
+        </p>
       </ScrollFadeIn>
     </section>
   );
