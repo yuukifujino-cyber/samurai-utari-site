@@ -5,6 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const serifFont = { fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' };
+
+type NavChild = { jp: string; href?: string; note?: string };
+
+const serviceChildren: NavChild[] = [
+  { jp: "コンサルティング事業", href: "/consulting" },
+  { jp: "人材教育事業", note: "Coming Soon" },
+];
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,11 +25,10 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
+  const links: { href: string; jp: string; en: string; children?: NavChild[] }[] = [
     { href: "/#philosophy", jp: "理念", en: "Philosophy" },
     { href: "/#mission", jp: "使命", en: "Mission" },
-    { href: "/#service", jp: "事業", en: "Service" },
-    { href: "/consulting", jp: "コンサル", en: "Consulting" },
+    { href: "/#service", jp: "事業", en: "Service", children: serviceChildren },
     { href: "/#team", jp: "UTARI", en: "Team" },
     { href: "/#contact", jp: "連絡", en: "Contact" },
   ];
@@ -60,21 +68,47 @@ export function Nav() {
         {/* Desktop menu */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="group flex flex-col items-center text-[#0a2044]/75 hover:text-[#123563] transition-colors py-1"
-            >
-              <span
-                className="text-[13px] md:text-sm tracking-[0.18em]"
-                style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
+            <div key={link.href} className="relative group/item">
+              <a
+                href={link.href}
+                aria-haspopup={link.children ? "true" : undefined}
+                className="group flex flex-col items-center text-[#0a2044]/75 hover:text-[#123563] transition-colors py-1"
               >
-                {link.jp}
-              </span>
-              <span className="text-[9px] tracking-[0.2em] uppercase text-[#0a2044]/35 mt-0.5 group-hover:text-[#123563]/60 transition-colors">
-                {link.en}
-              </span>
-            </a>
+                <span className="text-[13px] md:text-sm tracking-[0.18em]" style={serifFont}>
+                  {link.jp}
+                </span>
+                <span className="text-[9px] tracking-[0.2em] uppercase text-[#0a2044]/35 mt-0.5 group-hover:text-[#123563]/60 transition-colors">
+                  {link.en}
+                </span>
+              </a>
+              {link.children && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover/item:block group-focus-within/item:block">
+                  <ul className="min-w-[230px] list-none m-0 p-2 bg-[#f6f2e7] border border-[#0a2044]/15 shadow-lg">
+                    {link.children.map((child) => (
+                      <li key={child.jp}>
+                        {child.href ? (
+                          <Link
+                            href={child.href}
+                            className="block px-3 py-2.5 text-[14px] tracking-[0.08em] whitespace-nowrap text-[#123563] hover:bg-[#123563] hover:text-white transition-colors"
+                            style={serifFont}
+                          >
+                            {child.jp}
+                          </Link>
+                        ) : (
+                          <span
+                            className="flex items-center justify-between gap-3 px-3 py-2.5 text-[14px] tracking-[0.08em] whitespace-nowrap text-[#0a2044]/60"
+                            style={serifFont}
+                          >
+                            {child.jp}
+                            <span className="text-[11px] text-[#8b2500]">{child.note}</span>
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           ))}
           <a
             href="/consulting#contact"
@@ -120,22 +154,38 @@ export function Nav() {
       {menuOpen && (
         <div className="lg:hidden mt-4 pb-4 flex flex-col gap-5 border-t border-[#0a2044]/10 pt-5">
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[#0a2044]/80 text-base hover:text-[#123563] flex items-baseline gap-3"
-              onClick={() => setMenuOpen(false)}
-            >
-              <span
-                className="tracking-[0.15em]"
-                style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
+            <div key={link.href}>
+              <a
+                href={link.href}
+                className="text-[#0a2044]/80 text-base hover:text-[#123563] flex items-baseline gap-3"
+                onClick={() => setMenuOpen(false)}
               >
-                {link.jp}
-              </span>
-              <span className="text-[10px] tracking-[0.2em] uppercase text-[#0a2044]/35">
-                {link.en}
-              </span>
-            </a>
+                <span className="tracking-[0.15em]" style={serifFont}>
+                  {link.jp}
+                </span>
+                <span className="text-[10px] tracking-[0.2em] uppercase text-[#0a2044]/35">
+                  {link.en}
+                </span>
+              </a>
+              {link.children && (
+                <ul className="list-none mt-3 mb-0 ml-1 pl-4 space-y-3 border-l border-[#0a2044]/20">
+                  {link.children.map((child) => (
+                    <li key={child.jp} className="text-[14px] tracking-[0.1em]" style={serifFont}>
+                      {child.href ? (
+                        <Link href={child.href} className="text-[#123563]" onClick={() => setMenuOpen(false)}>
+                          {child.jp}
+                        </Link>
+                      ) : (
+                        <span className="text-[#0a2044]/60">
+                          {child.jp}
+                          <span className="ml-2 text-[11px] text-[#8b2500]">{child.note}</span>
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           ))}
         </div>
       )}
