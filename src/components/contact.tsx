@@ -31,7 +31,7 @@ export function Contact() {
           className="text-sm md:text-[15px] text-white/60 mb-14 leading-[2]"
           style={{ fontFamily: 'var(--font-noto-serif), "Noto Serif JP", serif' }}
         >
-          経営、新規事業、人事、組織。
+          採用・育成、AI導入・定着、販路拡大、組織づくり。
           <br className="md:hidden" />
           領域を問わず、丸ごとご相談ください。
         </p>

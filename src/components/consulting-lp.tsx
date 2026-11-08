@@ -34,6 +34,14 @@ const walls: IconText[] = [
   { icon: Bot, name: "AIを入れても現場で使われない", detail: "導入で止まっている" },
 ];
 
+/** 北海道の100億宣言企業143社の宣言書を集計（2026-11-08時点・docs/research_hokkaido_100oku_issues_20261108.md） */
+const declarationStats = [
+  { name: "人材（採用・育成）", rate: 83 },
+  { name: "DX・業務効率化", rate: 71, note: "うちAIの活用を明記 15%" },
+  { name: "販路拡大・マーケティング", rate: 64 },
+  { name: "組織・経営体制づくり", rate: 42 },
+];
+
 const roles: IconText[] = [
   { icon: UserRound, name: "パートナー 藤野", detail: "論点と優先順位を決める責任者" },
   { icon: ClipboardList, name: "PM", detail: "藤野が兼任、または案件ごとに配置" },
@@ -48,13 +56,13 @@ const examples = [
 ];
 
 const areas: { icon: LucideIcon; name: string; studentStrength?: boolean }[] = [
+  { icon: UserRoundSearch, name: "採用支援・人材育成", studentStrength: true },
+  { icon: Bot, name: "AI導入・定着", studentStrength: true },
+  { icon: Megaphone, name: "マーケティング" },
+  { icon: Network, name: "組織・経営体制" },
   { icon: Target, name: "経営戦略" },
   { icon: ChartColumn, name: "経営企画" },
   { icon: Lightbulb, name: "新規事業開発" },
-  { icon: Megaphone, name: "マーケティング" },
-  { icon: Network, name: "人事・組織構造" },
-  { icon: UserRoundSearch, name: "採用支援・人材育成", studentStrength: true },
-  { icon: Bot, name: "AI活用・業務改革", studentStrength: true },
   { icon: ListChecks, name: "プロジェクト推進" },
 ];
 
@@ -124,6 +132,56 @@ function LpHero() {
         >
           まずは話を聞く
         </a>
+      </div>
+    </section>
+  );
+}
+
+function DeclarationData() {
+  return (
+    <section className="py-[90px] md:py-[130px] px-6 md:px-[60px] bg-white">
+      <div className="max-w-[1000px] mx-auto">
+        <ScrollFadeIn>
+          <SectionLabel>データ</SectionLabel>
+          <Heading>
+            北海道の
+            <br className="md:hidden" />
+            100億宣言企業143社が、
+            <br />
+            宣言書に書いた
+            <br className="md:hidden" />
+            課題と投資の領域。
+          </Heading>
+          <ol className="list-none m-0 p-0 space-y-7">
+            {declarationStats.map((stat, i) => (
+              <li key={stat.name}>
+                <div className="flex items-baseline justify-between gap-4 mb-2">
+                  <p className="text-[16px] md:text-[18px] font-medium text-[#123563] m-0" style={serifFont}>
+                    <span className="mr-3 text-[13px] text-[#8b2500]" style={interFont}>
+                      {i + 1}
+                    </span>
+                    {stat.name}
+                  </p>
+                  <p className="text-[26px] md:text-[32px] text-[#123563] m-0 leading-none" style={serifFont}>
+                    {stat.rate}
+                    <span className="text-[14px] ml-0.5">%</span>
+                  </p>
+                </div>
+                <div className="h-2.5 bg-[#123563]/10" aria-hidden="true">
+                  <div className="h-full bg-[#123563]" style={{ width: `${stat.rate}%` }} />
+                </div>
+                {stat.note && (
+                  <p className="mt-2 text-[13px] text-[#8b2500] m-0" style={serifFont}>
+                    {stat.note}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ol>
+          <p className="mt-8 text-[12px] leading-[1.8] text-[#1c1e2b]/70" style={serifFont}>
+            ※ 100億企業成長ポータルに掲載の北海道の宣言企業143社の宣言書を当社で集計（2026年11月時点）。各領域に触れている企業の割合で、1社が複数の領域に該当します。
+          </p>
+        </ScrollFadeIn>
       </div>
     </section>
   );
@@ -379,6 +437,7 @@ export function ConsultingLp() {
   return (
     <>
       <LpHero />
+      <DeclarationData />
       <Walls />
       <TeamStructure />
       <Examples />
